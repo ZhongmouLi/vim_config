@@ -1,0 +1,167 @@
+"
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. call plug#begin('~/.vim/plugged')
+"   - Avoid using standard Vim directory names like 'plugin'
+"
+" Make sure you use single quotes
+" Line number
+set number
+let g:gutentags_enabled = 0
+let g:formatdef_clangformat = '"clang-format --style=Google"'
+let g:formatters_cpp = ['clangformat']
+let g:formatters_c   = ['clangformat']
+
+call plug#begin('~/.vim/plugged')
+" Core plugins
+Plug 'junegunn/seoul256.vim'
+Plug 'https://github.com/junegunn/vim-easy-align.git'
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'nsf/gocode', { 'rtp': 'vim' }
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug '~/my-prototype-plugin'
+Plug 'itchyny/lightline.vim'
+
+" --- C++ Plugins ---
+Plug 'https://github.com/bfrg/vim-c-cpp-modern.git'
+Plug 'andymass/vim-matchup'
+Plug 'dense-analysis/ale'
+Plug 'Chiel92/vim-autoformat'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'preservim/tagbar'
+Plug 'tpope/vim-dispatch'
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
+Plug 'ilyachur/cmake4vim'
+
+" --- Markdown Plugins ---
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'masukomi/vim-markdown-folding'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install', 'for': 'markdown' }
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'mzlogin/vim-markdown-toc', { 'do': 'make install' }
+Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim'
+
+" --- Structure/Outline view ---
+"Plug 'liuchengxu/vista.vim'
+call plug#end()
+
+" --- General Settings ---
+set encoding=utf-8
+let g:webdevicons_enable = 1
+silent! colorscheme seoul256
+
+" --- Copy/Paste mappings ---
+nnoremap <expr> p  (v:register == '"' ? '"0p' : 'p')
+nnoremap <expr> P  (v:register == '"' ? '"0P' : 'P')
+
+" --- Vista Config for structure view ---
+" Us autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" " The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. call plug#begin('~/.vim/plugged')
+"   - Avoid using standard Vim directory names like 'plugin'
+"
+" Make sure you use single quotes
+" Line number
+set number
+let g:gutentags_enabled = 0
+let g:formatdef_clangformat = '"clang-format --style=Google"'
+let g:formatters_cpp = ['clangformat']
+let g:formatters_c   = ['clangformat']
+
+call plug#begin('~/.vim/plugged')
+" Core plugins
+Plug 'junegunn/seoul256.vim'
+Plug 'https://github.com/junegunn/vim-easy-align.git'
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'nsf/gocode', { 'rtp': 'vim' }
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug '~/my-prototype-plugin'
+Plug 'itchyny/lightline.vim'
+
+" --- C++ Plugins ---
+Plug 'https://github.com/bfrg/vim-c-cpp-modern.git'
+Plug 'andymass/vim-matchup'
+Plug 'dense-analysis/ale'
+Plug 'Chiel92/vim-autoformat'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-dispatch'
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
+Plug 'ilyachur/cmake4vim'
+
+" --- Markdown Plugins ---
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'masukomi/vim-markdown-folding'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install', 'for': 'markdown' }
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'mzlogin/vim-markdown-toc', { 'do': 'make install' }
+Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim'
+
+" --- Structure/Outline view ---
+"Plug 'liuchengxu/vista.vim'
+Plug 'preservim/tagbar'
+call plug#end()
+
+" --- General Settings ---
+set encoding=utf-8
+let g:webdevicons_enable = 1
+silent! colorscheme seoul256
+
+" --- Copy/Paste mappings ---
+nnoremap <expr> p  (v:register == '"' ? '"0p' : 'p')
+nnoremap <expr> P  (v:register == '"' ? '"0P' : 'P')
+
+" --- CoC Extensions (clangd for C/C++) ---
+let g:coc_global_extensions = ['coc-clangd']
+" --- Tagbar Configuration ---
+" Toggle tagbar with F8
+nnoremap <F8> :TagbarToggle<CR>
+
+" Automatically open tagbar for supported filetypes
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
+
+" Automatically open tagbar when opening supported files
+"autocmd FileType * nested :call tagbar#autoopen(0)
+
+" Close vim if the only window left open is tagbar
+"autocmd BufEnter * if winnr('$') == 1 && exists('t:tagbar_buf_name') && bufwinnr(t:tagbar_buf_name) != -1 | quit | endif
+
+" Tagbar settings
+let g:tagbar_width = 30
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 0
+let g:tagbar_left = 0
+let g:tagbar_sort = 0
+
+" Optional: Show function signatures
+let g:tagbar_show_linenumbers = 1
+let g:tagbar_show_visibility = 1
+
